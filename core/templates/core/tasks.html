@@ -15,7 +15,7 @@
 
                 <a href="{% url 'core:index' %}">
                     <div>
-                        <a href="{% url 'task:detail' task.id%}" class="rounded-t-xl">{{ task.name }}</a>
+                        <a href="{% url 'core:task:detail' task.id%}" class="rounded-t-xl">{{ task.name }}</a>
                     </div>
                     <div class="p-6 bg-white rounded-b-xl">
                         <h2 class="text-2-xl">Description: {{ task.description }}</h2>
