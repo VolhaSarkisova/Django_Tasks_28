@@ -1,0 +1,16 @@
+
+#page {
+  display: flex;
+  height: calc( 100vh - 30px);
+  /* calculate the height. Header is 30px */
+}
+
+#sideBar {
+  width: 300px;
+  background: #c9ccd1;
+}
+
+#content {
+  background: white;
+  flex: 1 0 auto;
+}
