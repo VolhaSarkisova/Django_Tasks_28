@@ -2,9 +2,9 @@ from django.db import models
 from users.models import Users
 
 STATUSES = (
-    ("1", "В ожидании"),
-    ("2", "В процессе"),
-    ("3", "Завершено"),
+    ("В ожидании", "В ожидании"),
+    ("В процессе", "В процессе"),
+    ("Завершено", "Завершено"),
 )
 
 class Tasks(models.Model):

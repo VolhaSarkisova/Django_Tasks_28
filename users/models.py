@@ -4,7 +4,8 @@ class Users(models.Model):
     login = models.CharField(max_length=255,
                             verbose_name="User login",
                             help_text="Enter a user login")
-    mail = models.EmailField()
+    mail = models.EmailField(verbose_name="User email",
+                            help_text="Enter a user email")
     password = models.CharField(max_length=255,
                             verbose_name="User password",
                             help_text="Enter a user password")
