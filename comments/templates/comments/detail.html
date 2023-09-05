@@ -20,7 +20,7 @@
 
 
     <div class="mt-12 px-12 py-12 bg-gray-100 rounded-xl">
-        <p>{{ parent_comment }}</p>
+        <p class="mb-2 text-2xl">{{ parent_comment }}</p>
         <form method="post" action="." enctype="multipart/form-data">
             {% csrf_token %}
             <div class="space-y-4">
