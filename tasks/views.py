@@ -4,6 +4,7 @@ from tasks.models import Tasks
 from users.models import Users
 from tasks.forms import NewTaskForm, EditTaskForm
 
+
 def task_detail(request, pk):
     task = get_object_or_404(Tasks, pk=pk)
 
@@ -65,5 +66,5 @@ def delete_task(request, pk):
 
     task.delete()
 
-    return redirect("core:index")
+    return redirect("core:task:tasks")
 
