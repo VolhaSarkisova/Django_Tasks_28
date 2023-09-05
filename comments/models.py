@@ -1,7 +1,10 @@
 from django.db import models
-
-from tasks.models import Tasks
 from django.contrib.auth.models import User
+from tasks.models import Tasks
+from users.models import Users
+
+
+# from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -9,7 +12,7 @@ class Comments(models.Model):
     task = models.ForeignKey(Tasks,
                              on_delete=models.CASCADE,
                              related_name="comments_task")
-    user = models.ForeignKey(User,
+    user = models.ForeignKey(Users,
                              on_delete=models.CASCADE,
                              related_name="comments_user")
     text = models.TextField(max_length=3000,

@@ -5,13 +5,16 @@ INPUT_CLASSES = "w-full py-4 px-6 rounded-xl border"
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
-        fields = ('text',)
+        fields = ('text', 'user')
 
         widgets = {
             # 'parent': forms.Select(attrs={
             #     "class": INPUT_CLASSES,
             # }),
             'text': forms.TextInput(attrs={
+                "class": INPUT_CLASSES,
+            }),
+            'user': forms.Select(attrs={
                 "class": INPUT_CLASSES,
             })
         }
