@@ -1,0 +1,43 @@
+{% extends 'core/index.html' %}
+
+{% block title %}
+     {{ task.name }}
+{% endblock %}
+{% block content %}
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <h2 class="mb-2 text-2xl text-center"><a href="{% url 'comments:comments' task.id 0 %}" >{{ task.name }}</a></h2>
+        <h3 class="mb-2 text-2xl">Comments:</h3>
+        {% for comment in comments %}
+             {% if comment.is_parent %}
+                <h3> <b>{{ comment.user }} ({{ comment.date_creation}}): </b><a href="{% url 'comments:comments' task.id comment.id %}">{{ comment.text }}</a></h3>
+             {% endif %}
+             {% for replies in comment.children %}
+                <h3>&nbsp; &nbsp; &nbsp; <b>{{ replies.user }} ({{ replies.date_creation}}): </b> {{ replies.text }}</h3>
+             {% endfor %}
+        {% endfor %}
+
+    </div>
+
+
+    <div class="mt-12 px-12 py-12 bg-gray-100 rounded-xl">
+        <p>{{ parent_comment }}</p>
+        <form method="post" action="." enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="space-y-4">
+                {{ form.as_p }}
+            </div>
+
+            {% if form.errors or form.non_field_errors %}
+                <div class="mb-3 p-6 bg-red-100 rounded-xl">
+                    {% for field in form %}
+                        {{ field.errors }}
+                    {% endfor %}
+
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <button class="mt-8 py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Add</button>
+        </form>
+    </div>
+{% endblock %}
