@@ -14,6 +14,7 @@ class SignInForm(AuthenticationForm):
         "class": "w-full py-4 px-6 rounded-xl"
     }))
 
+
 class SignUpForm(UserCreationForm):
     class Meta:
         model = User
